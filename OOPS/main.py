@@ -82,9 +82,20 @@ print(value)
 
 # Encalsulation
 class Encapsulation:
+    __counter = 1 # static varaible and also private
     def __init__(self):
         self.__value = "" # __ marks value as private
+        Encapsulation.__counter += 1 # accessing static variable
     
+    @staticmethod
+    def get_counter():
+        return Encapsulation.__counter
+    @staticmethod
+    def update_count(value):
+        if type(value) != int:
+            return
+        Encapsulation.__counter = value
+
     def __get_value(self):
         return self.__value
     
